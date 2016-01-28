@@ -1,0 +1,19 @@
+{
+		"extra": {
+			"version": "1.0.0"
+		},
+    "name": "4gekkman/m2",
+		"description": "M2 - App Log",
+    "license": "4gekkman@gmail.com",
+    "authors": [
+        {
+            "name": "4gekkman",
+            "email": "4gekkman@gmail.com",
+						"homepage": "https://github.com/4gekkman/m2"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"M2\\": ""}
+    }
+}
