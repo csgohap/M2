@@ -43,7 +43,7 @@
         // 2] Пары 'событие-обработчик' документов M-пакета //
         //--------------------------------------------------//
         $pairs2register = [
-          'R2\Event' => 'M2\EventHandlers\H1_catch2log',
+          'M2\EventHandlers\H1_catch2log' => 'R2\Event',
         ];
 
       //----------------------------------//
@@ -66,7 +66,7 @@
 
         // 3] Регистрация пар 'событие-обработчик' документом M-пакета документа "" //
         //--------------------------------------------------------------------------//
-        foreach($pairs2register as $event => $handler) {
+        foreach($pairs2register as $handler => $event) {
           $events->listen($event, $handler);
         }
 
