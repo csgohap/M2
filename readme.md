@@ -1,4 +1,4 @@
-# M2 - App Log
+# M2 - App Log (master)
 ---
 ## Оглавление
 
