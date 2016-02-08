@@ -186,16 +186,21 @@ class C1_write2log extends Job { // TODO: добавить "implements ShouldQue
 
       // 4. Добавить новую запись в лог
 
-        // 4.1. Создать новый eloquent-объект
+        // 4.1. Если класса \M2\Models\MD1_log не существует
+        // - Сообщить и завершить
+        if(!class_exists('\M2\Models\MD1_log'))
+          throw new \Exception('Класс "\M2\Models\MD1_log" не существует.');
+
+        // 4.2. Создать новый eloquent-объект
         $newnote = new \M2\Models\MD1_log();
 
-        // 4.2. Наполнить $newnote
+        // 4.3. Наполнить $newnote
         $newnote->message = $msg;
 
-        // 4.3. Сохранить $newnote в БД
+        // 4.4. Сохранить $newnote в БД
         $newnote->save();
 
-        // 4.4. Получить ID новой записи
+        // 4.5. Получить ID новой записи
         $newnote_id = $newnote->id;
 
       // 5. Добавить в M2_tags те теги, которых там ещё нет
@@ -250,7 +255,6 @@ class C1_write2log extends Job { // TODO: добавить "implements ShouldQue
         $errortext = 'Invoking of command C1_write2log from M-package M2 have ended with error: '.$e->getMessage();
         DB::rollback();
         Log::info($errortext);
-        write2log($errortext, ['C1_write2log']);
         return [
           "status"  => -2,
           "data"    => $errortext
