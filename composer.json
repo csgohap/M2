@@ -12,7 +12,9 @@
 						"homepage": "https://github.com/4gekkman/m2"
         }
     ],
-    "require": {},
+    "require": {
+      "4gekkman/M1": "~1.0"
+    },
     "autoload": {
         "psr-4": {"M2\\": ""}
     }
