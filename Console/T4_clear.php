@@ -159,6 +159,7 @@ class T4_clear extends Command
      */
 
     // 1. Выполнить команду
+    $this->info('Произвожу полную очистку лога...');
     $result = runcommand('\M2\Commands\C3_clear');
 
 
@@ -170,7 +171,7 @@ class T4_clear extends Command
 
 
     // 3. В случае успеха, вывести соотв.сообщение
-    $this->info("Success");
+    $this->info("Очистка завершена успешно");
 
   }
 
