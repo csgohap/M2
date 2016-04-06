@@ -100,7 +100,12 @@
       //-----------------------------------------------------//
 
         // Список подготовленных для добавление в планировщик строк
-        // Пример: $schedule->command("m1:parseapp")->withoutOverlapping()->hourly();
+        // - Статья про cron-формат: http://www.nncron.ru/help/EN/working/cron-format.htm
+        // - Примеры:
+        //
+        //    $schedule->command("m1:parseapp")->withoutOverlapping()->hourly();                        // каждый час
+        //    $schedule->command("m1:parseapp")->withoutOverlapping()->cron("0,15,30,45 * * * * *");    // каждые 15 минут
+        //
         $add2schedule = [
         ];
 
