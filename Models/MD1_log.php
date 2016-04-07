@@ -67,7 +67,7 @@ class MD1_log extends Model {
   //------------------//
 
     // relationships start
-    public function tags() { return $this->belongsToMany('\M2\Models\MD2_tags', 'm2.md1000', 'id_lognote', 'id_tag'); }
+
     // relationships stop
 
 
