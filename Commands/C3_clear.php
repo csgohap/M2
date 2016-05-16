@@ -135,8 +135,9 @@ class C3_clear extends Job { // TODO: добавить "implements ShouldQueue" 
     /**
      * Оглавление
      *
-     *  1.
-     *
+     *  1. Полностью очистить pivot-таблицу
+     *  2. Полностью очистить таблицу лога
+     *  3. Сбросить счётчик автоинкремента
      *
      *  N. Вернуть статус 0
      *
@@ -147,11 +148,14 @@ class C3_clear extends Job { // TODO: добавить "implements ShouldQueue" 
     //------------------------//
     $res = call_user_func(function() { try { DB::beginTransaction();
 
-      // 2.1. Полностью очистить pivot-таблицу
+      // 1. Полностью очистить pivot-таблицу
       DB::table('m2.md1000')->truncate();
 
-      // 2.2. Полностью очистить таблицу лога
+      // 2. Полностью очистить таблицу лога
       \M2\Models\MD1_log::query()->delete();
+
+      // 3. Сбросить счётчик автоинкремента
+      DB::statement('ALTER TABLE m2.md1_log AUTO_INCREMENT = 1;');
 
 
     DB::commit(); } catch(\Exception $e) {
