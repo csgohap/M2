@@ -61,8 +61,8 @@
 
         // 2] Регистрация Before- и After-middleware M-пакета //
         //----------------------------------------------------//
-        $kernel->pushMiddleware($packid.'\Middlewares\AfterMiddleware');
-        $kernel->pushMiddleware($packid.'\Middlewares\BeforeMiddleware');
+        $this->app['router']->pushMiddlewareToGroup('web', $packid.'\Middlewares\AfterMiddleware');
+        $this->app['router']->pushMiddlewareToGroup('web', $packid.'\Middlewares\BeforeMiddleware');
 
         // 3] Регистрация пар 'событие-обработчик' документом M-пакета документа "" //
         //--------------------------------------------------------------------------//
