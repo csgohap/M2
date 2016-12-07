@@ -241,7 +241,7 @@ class C1_write2log extends Job { // TODO: добавить "implements ShouldQue
       // 6. Связать запись $newnote со всеми тегами из $tags
 
         // 6.1. Получить массив ID всех тегов из $tags из БД
-        $tags_ids = \M2\Models\MD2_tags::whereIn('tagname', $tags)->lists('id');
+        $tags_ids = \M2\Models\MD2_tags::whereIn('tagname', $tags)->pluck('id');
 
         // 6.1. Связать
         foreach($tags_ids as $tagid) {
