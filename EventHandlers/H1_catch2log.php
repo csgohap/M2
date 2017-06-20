@@ -164,7 +164,7 @@ class H1_catch2log  // TODO: написать "implements ShouldQueue", и то�
     } catch(\Exception $e) {
       $errortext = 'Keys checking in event handler H1_catch2log of M-package M2 have ended with error: '.$e->getMessage();
       Log::info($errortext);
-      write2log($errortext, ['M1', 'parseapp']);
+      write2log($errortext, ['M2', 'catch2log']);
       return [
         "status"  => -2,
         "data"    => $errortext
